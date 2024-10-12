@@ -3,17 +3,11 @@
 namespace SunCalcNet.Model
 {
     [Serializable]
-    public struct EquatorialCoords : IEquatable<EquatorialCoords>
+    public struct EquatorialCoords(double rightAscension, double declination) : IEquatable<EquatorialCoords>
     {
-        public double RightAscension { get; }
+        public double RightAscension { get; } = rightAscension;
 
-        public double Declination { get; }
-
-        public EquatorialCoords(double rightAscension, double declination)
-        {
-            RightAscension = rightAscension;
-            Declination = declination;
-        }
+        public double Declination { get; } = declination;
 
         public static bool operator ==(EquatorialCoords lhs, EquatorialCoords rhs)
         {

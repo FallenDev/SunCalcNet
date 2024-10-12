@@ -3,35 +3,27 @@
 namespace SunCalcNet.Model
 {
     [Serializable]
-    public struct MoonPosition : IEquatable<MoonPosition>
+    public struct MoonPosition(double azimuth, double altitude, double distance, double parallacticAngle) : IEquatable<MoonPosition>
     {
         /// <summary>
         /// Moon azimuth in radians
         /// </summary>
-        public double Azimuth { get; }
+        public double Azimuth { get; } = azimuth;
 
         /// <summary>
         /// Moon altitude above the horizon in radians
         /// </summary>
-        public double Altitude { get; }
+        public double Altitude { get; } = altitude;
 
         /// <summary>
         /// Distance to moon in kilometers
         /// </summary>
-        public double Distance { get; }
+        public double Distance { get; } = distance;
 
         /// <summary>
         /// Parallactic angle of the moon in radians
         /// </summary>
-        public double ParallacticAngle { get; }
-
-        public MoonPosition(double azimuth, double altitude, double distance, double parallacticAngle)
-        {
-            Azimuth = azimuth;
-            Altitude = altitude;
-            Distance = distance;
-            ParallacticAngle = parallacticAngle;
-        }
+        public double ParallacticAngle { get; } = parallacticAngle;
 
         public static bool operator ==(MoonPosition lhs, MoonPosition rhs)
         {

@@ -3,23 +3,17 @@
 namespace SunCalcNet.Model
 {
     [Serializable]
-    public struct SunPhase : IEquatable<SunPhase>
+    public struct SunPhase(SunPhaseName name, DateTime phaseTime) : IEquatable<SunPhase>
     {
         /// <summary>
         /// Sun phase name.
         /// </summary>
-        public SunPhaseName Name { get; }
+        public SunPhaseName Name { get; } = name;
 
         /// <summary>
         /// Time of the day when the sun phase occurs
         /// </summary>
-        public DateTime PhaseTime { get; }
-
-        public SunPhase(SunPhaseName name, DateTime phaseTime)
-        {
-            Name = name;
-            PhaseTime = phaseTime;
-        }
+        public DateTime PhaseTime { get; } = phaseTime;
 
         public static bool operator ==(SunPhase lhs, SunPhase rhs)
         {

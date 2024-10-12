@@ -3,20 +3,13 @@
 namespace SunCalcNet.Model
 {
     [Serializable]
-    public struct GeocentricCoords : IEquatable<GeocentricCoords>
+    public struct GeocentricCoords(double rightAscension, double declination, double distance)  : IEquatable<GeocentricCoords>
     {
-        public double RightAscension { get; }
+        public double RightAscension { get; } = rightAscension;
 
-        public double Declination { get; }
+        public double Declination { get; } = declination;
 
-        public double Distance { get; }
-
-        public GeocentricCoords(double rightAscension, double declination, double distance)
-        {
-            RightAscension = rightAscension;
-            Declination = declination;
-            Distance = distance;
-        }
+        public double Distance { get; } = distance;
 
         public static bool operator ==(GeocentricCoords lhs, GeocentricCoords rhs)
         {

@@ -3,20 +3,13 @@
 namespace SunCalcNet.Model
 {
     [Serializable]
-    public struct MoonIllumination : IEquatable<MoonIllumination>
+    public struct MoonIllumination(double fraction, double phase, double angle) : IEquatable<MoonIllumination>
     {
-        public double Fraction { get; }
+        public double Fraction { get; } = fraction;
 
-        public double Phase { get; }
+        public double Phase { get; } = phase;
 
-        public double Angle { get; }
-
-        public MoonIllumination(double fraction, double phase, double angle)
-        {
-            Fraction = fraction;
-            Phase = phase;
-            Angle = angle;
-        }
+        public double Angle { get; } = angle;
 
         public static bool operator ==(MoonIllumination lhs, MoonIllumination rhs)
         {
