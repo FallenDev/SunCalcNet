@@ -24,7 +24,4 @@
 		<EmbeddedResource Remove="artifacts\**" />
 		<None Remove="artifacts\**" />
 	</ItemGroup>
-	<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.App" />
-	</ItemGroup>
 </Project>
